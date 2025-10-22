@@ -1,0 +1,840 @@
+
+/* 1. Global Reset & Variables */
+:root {
+    --color-primary: #ffffff; 
+    --color-secondary: #fce7e8; 
+    --color-gradient-top: #DB8AA9; 
+    --color-gradient-bottom: #714A59; 
+    
+    --color-text-dark: #333333;
+    --color-text-light: #714A59;
+    --color-accent: #f5b7b9;
+    
+    --font-heading: 'Georgia', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.6;
+    min-height: 100vh; 
+	background: linear-gradient(to bottom, var(--color-gradient-top) 0%, var(--color-gradient-bottom) 100%);
+
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 2. Header & Navigation (Desktop First) */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-text-light);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	
+}
+
+.logo h1 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-text-light);
+    letter-spacing: 1px;
+	text-align: center;
+}
+
+.logo img { 
+    max-width: 120px; 
+    height: auto;
+	
+}
+
+.header-logo {
+    transform: scale(0.7);
+    transform-origin: left; 
+}
+
+.logo-svg {
+    width: 150px; 
+    height: 150px;
+}
+
+.text-header {
+    flex-grow: 1; 
+    text-align: center; 
+    align-self: center; 
+    margin-left: 20px; 
+}
+ 
+.main-title {
+    font-size: 56px;
+    font-family: 'Bowlby One SC', sans-serif;
+    color:  #714A59;
+    font-weight: 900;
+    text-align: center;
+	letter-spacing: 2px;
+    margin: 0 auto;
+	text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.tag-line{
+	font-size: 12px; 
+    font-weight: bold;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.desktop-nav ul {
+    display: flex;
+    gap: 25px;
+}
+
+.desktop-nav a {
+    color: var(--color-text-light);
+    font-weight: 500;
+    padding: 5px 0;
+    transition: border-bottom 0.3s;
+	text-decoration:none;
+}
+
+
+.desktop-nav a:hover,
+.desktop-nav a.active {
+	text-decoration: none;	
+    border-bottom: 2px solid var(--color-accent);
+}
+
+.auth-links a {
+    color: var(--color-text-light);
+    margin-left: 15px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.auth-links .signup-btn {
+    background-color: #A9A9A9; 
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.auth-links .login-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.auth-links .signup-btn:hover {
+    background-color:  #DB8AA9;
+}
+
+.hero-header-content {
+    text-align: center;
+    padding-top: 50px; 
+    width: 100%;
+}
+
+.mobile-menu-toggle {
+    display: none; 
+}
+
+.mobile-footer-nav {
+    display: none;
+}
+
+/* 3. Hero Section */
+.hero-section {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto 50px auto; 
+    padding: 20px;
+    align-items: center; 
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Paw overlay */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;   
+    background: url("../assets/paw.png") no-repeat bottom right;
+    background-size: 800px;    
+    background-position: 50% -50px; 
+    opacity: 0.15; 
+    filter: invert(100%);     
+    z-index: 0;
+}
+
+.hero-content,
+.hero-image-container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content p{
+	margin: 0 auto 30px auto;
+	color: var(--color-primary);
+}
+
+.hero-content .small-title {
+    display: block;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.hero-content h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 500px;
+	color: var(--color-primary);
+
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--color-primary);
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s, transform 0.2s;
+	border: 2px solid white; 
+}
+
+.cta-button:hover {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+	color: black;
+}
+
+.hero-image-container {
+    flex: 1;
+    text-align: right;
+}
+
+.hero-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+/* 5. cafés page styles  */
+.cafe-page .main-header {
+    align-items: center;
+	padding: 20px 5%;
+}
+
+.cafe-page .text-header,
+.cafe-page .central-title-block {
+    display: none; 
+}
+
+.cafe-page .logo img {
+    height: 100px;
+    max-width: 100px;
+}
+
+.cafe-section {
+	text-align: center;
+	padding: 60px 20px;
+	background: linear-gradient(to bottom, var(--color-gradient-top) 0%, var(--color-gradient-bottom) 100%);
+	position: relative;
+	overflow: hidden;
+	min-height: 90vh; 
+}
+
+.cafe-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../assets/paw.png") no-repeat bottom right; 
+    background-size: 800px;
+    background-position: 50% -50px; 
+    opacity: 0.15; 
+    filter: invert(100%);   
+    z-index: 0;
+}
+
+.cafe-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+.cafe-section h1 {
+  font-family: 'Bowlby One SC', sans-serif;
+  font-size: 50px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  color: #714A59;
+  position: relative;
+  z-index: 2;
+}
+
+.cafe-section .subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #333;
+  position: relative;
+  z-index: 2;
+}
+
+.subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.search-bar {
+      margin: 20px auto;
+	  display: flex;
+	  justify-content: center;
+	  max-width: 500px;
+	  background: #fff;
+	  border-radius: 25px;
+	  overflow: hidden;
+	  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+}
+
+.search-bar button {
+	background: none;
+    border: none;
+    padding: 0px 15px;
+    cursor: pointer;
+}
+
+/* 5. Cafés Page Styles & Adjustments  */
+.map-container {
+    max-width: 800px;
+    margin: 30px auto;
+    border-radius: 20px; /* Rounded map corners */
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+    border-radius: 20px;
+}
+
+
+
+/* 6. Responsive Fixes for Cafés Page */
+
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 15px 20px;
+    }
+
+    .desktop-nav,
+    .auth-links,
+    .central-title-block { 
+        display: none; 
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .mobile-menu-toggle img {
+        width: 24px; 
+        height: 24px;
+        filter: invert(0);
+    }
+
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        margin: 20px auto 100px; 
+        padding: 20px 10px;
+    }
+
+    .hero-content {
+        order: 2; 
+        max-width: 100%;
+    }
+
+    .hero-image-container {
+        order: 1; 
+        margin-bottom: 30px;
+        text-align: center;
+        max-width: 80%; 
+    }
+
+    /* CAFÉ SECTION */
+    .cafe-section {
+        padding-bottom: 100px;
+    }
+
+    .search-bar {
+        max-width: 90%;
+    }
+    
+    .map-container {
+        margin: 20px 5%;
+        max-width: 90%;
+    }
+    
+    .map-container iframe {
+        height: 300px; 
+    }
+
+    /* MOBILE FOOTER NAV */
+    .mobile-footer-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+		background: var(--color-primary); /* Use solid white for clear contrast */		
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .mobile-footer-nav ul {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .mobile-footer-nav a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--color-text-light);
+        font-size: 0.75rem;
+        text-decoration: none;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+    }
+
+    .mobile-footer-nav a.active,
+    .mobile-footer-nav a:hover {
+        opacity: 1;
+        color: var(--color-accent); 
+    }
+
+    .mobile-footer-nav img {
+        width: 20px;
+        height: 20px;
+        margin-bottom: 4px;
+        filter: none;
+    }
+    
+    .mobile-footer-nav a.active img {
+        filter: invert(30%) sepia(80%) saturate(600%) hue-rotate(300deg); 
+    }
+}
+
+/* 7. Tips & Tricks Page Styles */
+
+.tips-page .main-header {
+    align-items: center;
+    padding: 15px 5%;
+}
+
+.tips-page .text-header,
+.tips-page .main-title {
+    display: none; 
+}
+
+.tips-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(to bottom, var(--color-gradient-top) 0%, var(--color-gradient-bottom) 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 90vh; 
+}
+
+.tips-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../assets/paw.png") no-repeat center top;
+    background-size: 800px; 
+    opacity: 0.15;
+    filter: invert(100%);
+    z-index: 0;
+}
+
+.tips-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Page Title Style */
+.tips-main-title {
+    font-family: 'Bowlby One SC', sans-serif;
+    font-size: 3rem;
+    color: var(--color-text-light); 
+	text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    letter-spacing: 2px;
+}
+
+.tips-header-content .subtitle {
+    color: var(--color-primary); 
+}
+
+
+/* Article Cards Container */
+.articles-container {
+    max-width: 800px;
+    margin: 40px auto;
+    display: grid;
+    gap: 30px;
+}
+
+/* Individual Card Styling (White, Rounded) */
+.article-card {
+    background-color: var(--color-primary); /* White */
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+}
+
+.article-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-text-dark);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 5px;
+}
+
+.article-image-container {
+    margin: 0 -25px 20px -25px; 
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+}
+
+.article-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.article-excerpt {
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    line-height: 1.5;
+}
+
+.read-more {
+    color: var(--color-text-light);
+    font-weight: bold;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.read-more:hover {
+    color: var(--color-gradient-top);
+}
+
+/* Mobile Adjustments for Tips Page */
+@media (max-width: 768px) {
+    .tips-main-title {
+        font-size: 2.5rem;
+    }
+    
+    .tips-section {
+        padding: 30px 10px 100px 10px; 
+    }
+
+    .article-card {
+        padding: 15px;
+        margin: 0 5px;
+    }
+    
+    .article-image-container {
+         margin: 0 -15px 15px -15px;
+    }
+
+    .article-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* ABOUT PAGE STYLES */
+.about-page {
+  background: linear-gradient(to bottom, var(--color-gradient-top) 0%, var(--color-gradient-bottom) 100%);
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+
+.about-header {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.about-header h1 {
+  position: relative;	
+  font-family: 'Bowlby One SC', sans-serif;
+  font-size: 48px;
+  color: #714A59;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.about-card {
+  position: relative;
+  background: #fff;
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.about-card p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.about-section {
+  position: relative; /* This keeps the paw inside this section */
+  overflow: hidden;   /* Optional: hides any overflowing paw edges */
+  z-index: 1;
+}
+
+
+.about-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../assets/paw.png") no-repeat center top;
+    background-size: 800px; 
+    opacity: 0.15;
+    filter: invert(100%);
+    z-index: 0;
+}
+
+.cat-image img {
+  width: 120px;
+  margin-top: 20px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Header styling */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px 40px;
+  
+}
+
+.main-header .logo img {
+  height: 70px;
+}
+
+.desktop-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.desktop-nav ul li a {
+  text-decoration: none;
+  color: #4e2d34;
+  font-weight: 500;
+}
+
+.desktop-nav ul li a.active {
+  font-weight: 700;
+}
+
+.auth-links a {
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 6px;
+  margin-left: 10px;
+}
+
+.login-btn {
+  color: #4e2d34;
+}
+
+.signup-btn {
+  background-color: #4e2d34;
+  color: white;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  position: relative;	
+  text-align: center;
+  padding: 50px 0;
+  background: linear-gradient(to bottom, var(--color-gradient-top) 0%, var(--color-gradient-bottom) 100%);
+  position: relative; /* This keeps the paw inside this section */
+  overflow: hidden;   /* Optional: hides any overflowing paw edges */
+  z-index: 1;
+  
+}
+
+
+.contact-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../assets/paw.png") no-repeat center top;
+    background-size: 800px; 
+    opacity: 0.15;
+    filter: invert(100%);
+    z-index: 0;
+}
+
+.contact-title {
+  position: relative;			
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  font-family: 'Bowlby One SC', sans-serif;
+  color: #714A59;
+
+}
+
+.contact-container {
+  position: relative;	
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  background-color: #fff;
+  padding: 50px;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+
+}
+
+.contact-form label {
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border: none;
+  background-color: #f2f2f2;
+  border-radius: 30px;
+  padding: 12px 20px;
+  margin-top: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+.send-btn {
+  background-color: #b18a9e;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 12px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.send-btn:hover {
+  background-color: #a16f86;
+}
+
+/* Contact info */
+.contact-info {
+  text-align: left;
+  width: 35%;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.contact-info strong {
+  font-weight: 700;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
